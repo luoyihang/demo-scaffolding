@@ -1,4 +1,4 @@
-package com.lyh.dubbo.consumer;
+package com.lyh.dubbo.consumer.controller;
 
 import com.lyh.dubbo.interfaces.PersonDubboService;
 import org.apache.dubbo.config.annotation.Reference;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/person")
 public class PersonController {
 
-    @Reference
+    @Reference(version = "1.0")
     private PersonDubboService personDubboService;
 
-    @PostMapping
+    @PostMapping("/getUserName")
     public String getUserName() {
         return personDubboService.getUserName(123L);
     }

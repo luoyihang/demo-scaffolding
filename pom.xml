@@ -17,10 +17,9 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>web</module>
         <module>common</module>
-        <module>elasticsearch</module>
         <module>dubbo</module>
+        <module>elasticsearch</module>
     </modules>
 
     <properties>
@@ -91,12 +90,6 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
-            <exclusions>
-                <exclusion>
-                    <artifactId>jboss-logging</artifactId>
-                    <groupId>org.jboss.logging</groupId>
-                </exclusion>
-            </exclusions>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>

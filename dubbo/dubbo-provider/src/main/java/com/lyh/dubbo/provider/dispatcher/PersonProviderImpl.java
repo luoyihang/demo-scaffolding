@@ -1,4 +1,4 @@
-package com.lyh.dubbo.provider;
+package com.lyh.dubbo.provider.dispatcher;
 
 import com.lyh.dubbo.interfaces.PersonDubboService;
 import org.apache.dubbo.config.annotation.Service;
@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
  * @date 2019/9/18 19:35
  */
 @Component
-@Service
+@Service(version = "1.0", interfaceClass = PersonDubboService.class)
 public class PersonProviderImpl implements PersonDubboService {
 
     @Override
