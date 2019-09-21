@@ -9,7 +9,7 @@
 
     <parent>
         <groupId>com.lyh</groupId>
-        <artifactId>demo</artifactId>
+        <artifactId>demo-sacffolding</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
