@@ -100,7 +100,7 @@
 
 
 
-        <!-- spring boot -->
+        <!-- spring boot start ———————————————————————————————————————————————————————————————————————————— -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
@@ -115,6 +115,7 @@
                 </exclusion>
             </exclusions>
         </dependency>
+        <!-- 监控 -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
@@ -130,12 +131,15 @@
             <artifactId>spring-boot-configuration-processor</artifactId>
             <optional>true</optional>
         </dependency>
+        <!-- spring boot end ———————————————————————————————————————————————————————————————————————————— -->
 
-        <!-- spring cloud -->
+
+        <!-- spring cloud start ———————————————————————————————————————————————————————————————————————————— -->
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-sleuth</artifactId>
         </dependency>
+        <!-- spring cloud end ———————————————————————————————————————————————————————————————————————————— -->
 
     </dependencies>
 
