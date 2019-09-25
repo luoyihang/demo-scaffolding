@@ -20,6 +20,7 @@
         <module>common</module>
         <module>dubbo</module>
         <module>elasticsearch</module>
+        <module>skywalking</module>
     </modules>
 
     <properties>
@@ -98,8 +99,6 @@
         </dependency>
 
 
-
-
         <!-- spring boot start ———————————————————————————————————————————————————————————————————————————— -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -142,5 +141,6 @@
         <!-- spring cloud end ———————————————————————————————————————————————————————————————————————————— -->
 
     </dependencies>
+
 
 </project>
