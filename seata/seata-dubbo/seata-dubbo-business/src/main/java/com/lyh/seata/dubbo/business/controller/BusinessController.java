@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
  * @date 2019/10/12 15:39
  */
 @RestController
-@RequestMapping("/purchase")
+@RequestMapping("/business")
 public class BusinessController {
 
     @GetMapping("/purchase")

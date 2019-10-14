@@ -1,20 +1,18 @@
-package com.lyh.seata.dubbo.business;
+package com.lyh.seata.dubbo.account;
 
-import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 /**
  * @author luo yihang
- * @date 2019/10/12 14:06
+ * @date 2019/10/14 11:14
  */
 @SpringBootApplication(scanBasePackages = "com.lyh")
 @MapperScan(basePackages = "com.lyh.**.dao")
-@EnableDubbo
-public class SeataDubboBusinessApplication {
+public class AccountApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SeataDubboBusinessApplication.class, args);
+        SpringApplication.run(AccountApplication.class, args);
     }
 }
