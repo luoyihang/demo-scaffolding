@@ -21,6 +21,7 @@
         <module>dubbo</module>
         <module>elasticsearch</module>
         <module>skywalking</module>
+        <module>seata</module>
     </modules>
 
     <properties>
@@ -58,6 +59,22 @@
                     <exclusion>
                         <artifactId>slf4j-log4j12</artifactId>
                         <groupId>org.slf4j</groupId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+
+            <dependency>
+                <groupId>io.seata</groupId>
+                <artifactId>seata-all</artifactId>
+                <version>0.8.1</version>
+                <exclusions>
+                    <exclusion>
+                        <artifactId>asm</artifactId>
+                        <groupId>org.ow2.asm</groupId>
+                    </exclusion>
+                    <exclusion>
+                        <artifactId>druid</artifactId>
+                        <groupId>com.alibaba</groupId>
                     </exclusion>
                 </exclusions>
             </dependency>
