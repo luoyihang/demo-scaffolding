@@ -21,7 +21,7 @@
         <module>dubbo</module>
         <module>elasticsearch</module>
         <module>skywalking</module>
-        <module>seata</module>
+        <module>seata-dubbo</module>
     </modules>
 
     <properties>
