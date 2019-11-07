@@ -1,4 +1,4 @@
-package com.lyh.common.config;
+package com.lyh.common.exceptions;
 
 /**
  * @author luo yihang

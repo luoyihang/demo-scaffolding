@@ -17,7 +17,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * @author luoyihang
+ * @author luo yihang
  * @date 2019/4/30 18:43
  */
 @Aspect
@@ -38,7 +38,7 @@ public class TxAdviceAspect {
      * @return
      */
     @Bean
-    public TransactionInterceptor txAdvice(){
+    public TransactionInterceptor txAdvice() {
         NameMatchTransactionAttributeSource source = new NameMatchTransactionAttributeSource();
         RuleBasedTransactionAttribute requiredTx = new RuleBasedTransactionAttribute();
         requiredTx.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);

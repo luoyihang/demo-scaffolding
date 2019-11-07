@@ -7,9 +7,10 @@
         <encoder class="ch.qos.logback.classic.encoder.PatternLayoutEncoder">
             <pattern>%d %highlight([%-5level]) %X{X-B3-TraceId} [%t] %cyan([%c{0}.%line]) %m%n</pattern>
         </encoder>
-        <filter class="ch.qos.logback.classic.filter.ThresholdFilter">
-            <level>INFO</level>
-        </filter>
+        <!-- 过滤器，过滤小于DEBUG级别的日志-->
+        <!-- <filter class="ch.qos.logback.classic.filter.ThresholdFilter"> -->
+        <!--    <level>DEBUG</level> -->
+        <!-- </filter> -->
     </appender>
 
     <!-- 日志文件日志输出 -->
@@ -39,7 +40,7 @@
 
     <!-- 本地环境 -->
     <springProfile name="local">
-        <root level="info">
+        <root level="INFO">
             <appender-ref ref="stdout"/>
         </root>
     </springProfile>
