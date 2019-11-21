@@ -28,6 +28,11 @@ public class TableController {
         return personDao.getPersonByUserName(shardingDTO.getUserNameList().get(0));
     }
 
+    @PostMapping("/personTableByKey2")
+    public String personTableByKey2(@RequestBody ShardingDTO shardingDTO) {
+        return personDao.getPersonByUserName2(shardingDTO.getUserNameList().get(0));
+    }
+
     @PostMapping("/personByUserNameAndCreateTime")
     public String personByUserNameAndCreateTime(@RequestBody ShardingDTO shardingDTO) {
         return personDao.personByUserNameAndCreateTime(shardingDTO.getUserNameList().get(0), new Date(1572969600000L), new Date());

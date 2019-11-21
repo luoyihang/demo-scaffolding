@@ -6,6 +6,10 @@
         select personName from t_person where userName = #{userName}
     </select>
 
+    <select id="getPersonByUserName2" resultType="java.lang.String">
+        select personName from t_person where userName = "123"
+    </select>
+
     <select id="personByUserNameAndCreateTime" resultType="java.lang.String">
         select personName from t_person_range
         where userName = #{userName}

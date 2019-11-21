@@ -19,6 +19,7 @@ public interface PersonDao {
      * @return
      */
     String getPersonByUserName(@Param("userName") String userName);
+    String getPersonByUserName2(@Param("userName") String userName);
 
     /**
      * userName 和 createTime 分表
