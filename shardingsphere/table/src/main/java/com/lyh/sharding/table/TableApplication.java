@@ -9,7 +9,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author luo yihang
  * @date 2019/11/5 15:51
  */
-@SpringBootApplication(scanBasePackages = "com.lyh", exclude = DruidDataSourceAutoConfigure.class)
+@SpringBootApplication(scanBasePackages = "com.lyh", exclude = {DruidDataSourceAutoConfigure.class})
 @MapperScan(basePackages = "com.lyh.**.dao")
 public class TableApplication {
 
