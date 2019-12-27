@@ -19,6 +19,13 @@ public interface PersonDao {
      * @return
      */
     String getPersonByUserName(@Param("userName") String userName);
+
+    /**
+     * userName 分表2
+     *
+     * @param userName
+     * @return
+     */
     String getPersonByUserName2(@Param("userName") String userName);
 
     /**
@@ -29,7 +36,7 @@ public interface PersonDao {
      * @param endTime
      * @return
      */
-    String personByUserNameAndCreateTime(@Param("userName") String userName, @Param("startTime") Date startTime, @Param("endTime") Date endTime);
+    String getPersonRangeByUserNameCreateTime(@Param("userName") String userName, @Param("startTime") Date startTime, @Param("endTime") Date endTime);
 
     /**
      * userName 和 createTime 分表
@@ -39,7 +46,7 @@ public interface PersonDao {
      * @param endTime
      * @return
      */
-    List<String> listPersonByUserNameAndCreateTime(@Param("list") List<String> list, @Param("startTime") Date startTime, @Param("endTime") Date endTime);
+    List<String> listPersonRangeByUserNameCreateTime(@Param("list") List<String> list, @Param("startTime") Date startTime, @Param("endTime") Date endTime);
 
     /**
      * 新增
@@ -54,4 +61,11 @@ public interface PersonDao {
      * @param personList
      */
     void addPersonList(@Param("list") List<PersonModel> personList);
+
+    /**
+     * 新增
+     *
+     * @param personModel
+     */
+    void addPersonRange(PersonModel personModel);
 }

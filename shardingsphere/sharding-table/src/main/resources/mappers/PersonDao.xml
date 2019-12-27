@@ -10,7 +10,7 @@
         select personName from t_person where userName = "123"
     </select>
 
-    <select id="personByUserNameAndCreateTime" resultType="java.lang.String">
+    <select id="getPersonRangeByUserNameCreateTime" resultType="java.lang.String">
         select personName from t_person_range
         where userName = #{userName}
         and createTime between #{startTime} and #{endTime}
@@ -18,7 +18,7 @@
         <!--        <![CDATA[ and createTime <= #{endTime} ]]>-->
     </select>
 
-    <select id="listPersonByUserNameAndCreateTime" resultType="java.lang.String">
+    <select id="listPersonRangeByUserNameCreateTime" resultType="java.lang.String">
         select personName from t_person_range
         where userName in
         <foreach collection="list" item="item" separator="," open="(" close=")">#{item}</foreach>
@@ -36,6 +36,11 @@
         <foreach collection="list" item="item" separator=",">
             (#{item.createTime}, #{item.userName}, #{item.age}, #{item.personName})
         </foreach>
+    </insert>
+
+    <insert id="addPersonRange">
+        insert into t_person_range(createTime, userName, age, personName)
+        values(now(), #{userName}, #{age}, #{personName})
     </insert>
 
 </mapper>

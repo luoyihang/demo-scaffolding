@@ -1,4 +1,4 @@
-package com.lyh.sharding.table.util.sharding;
+package com.lyh.sharding.table.config;
 
 /**
  * @author luo yihang

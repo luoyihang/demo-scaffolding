@@ -1,4 +1,4 @@
-package com.lyh.sharding.table.util.sharding;
+package com.lyh.sharding.table.config;
 
 import com.lyh.common.exceptions.BaseRuntimeException;
 import org.apache.commons.collections4.CollectionUtils;
@@ -15,7 +15,7 @@ import java.util.List;
  */
 public class PersonShardingAlgorithm implements ComplexKeysShardingAlgorithm<String> {
 
-    private static final String SHARDING_KEY = "userName";
+    private static final String SHARDING_KEY = "username";
 
     @Override
     public Collection<String> doSharding(Collection<String> collection, ComplexKeysShardingValue<String> complexKeysShardingValue) {

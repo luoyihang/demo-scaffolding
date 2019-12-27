@@ -1,4 +1,4 @@
-package com.lyh.sharding.table.util.sharding;
+package com.lyh.sharding.table.config;
 
 import com.google.common.collect.Range;
 import com.lyh.common.exceptions.BaseRuntimeException;
@@ -15,8 +15,8 @@ import java.util.*;
  */
 public class PersonRangeShardingAlgorithm implements ComplexKeysShardingAlgorithm<String> {
 
-    private static final String SHARDING_KEY = "userName";
-    private static final String SHARDING_RANGE_KEY = "createTime";
+    private static final String SHARDING_KEY = "username";
+    private static final String SHARDING_RANGE_KEY = "createtime";
 
     @Override
     public Collection<String> doSharding(Collection<String> collection, ComplexKeysShardingValue<String> complexKeysShardingValue) {

@@ -18,29 +18,29 @@ import java.util.List;
  */
 @RestController
 @RequestMapping("/sharding")
-public class TableController {
+public class PersonController {
 
     @Resource
     private PersonDao personDao;
 
-    @PostMapping("/personTableByKey")
-    public String personTableByKey(@RequestBody ShardingDTO shardingDTO) {
+    @PostMapping("/getPersonByUserName")
+    public String getPersonByUserName(@RequestBody ShardingDTO shardingDTO) {
         return personDao.getPersonByUserName(shardingDTO.getUserNameList().get(0));
     }
 
-    @PostMapping("/personTableByKey2")
-    public String personTableByKey2(@RequestBody ShardingDTO shardingDTO) {
+    @PostMapping("/getPersonByUserName2")
+    public String getPersonByUserName2(@RequestBody ShardingDTO shardingDTO) {
         return personDao.getPersonByUserName2(shardingDTO.getUserNameList().get(0));
     }
 
-    @PostMapping("/personByUserNameAndCreateTime")
-    public String personByUserNameAndCreateTime(@RequestBody ShardingDTO shardingDTO) {
-        return personDao.personByUserNameAndCreateTime(shardingDTO.getUserNameList().get(0), new Date(1572969600000L), new Date());
+    @PostMapping("/getPersonRangeByUserNameCreateTime")
+    public String getPersonRangeByUserNameCreateTime(@RequestBody ShardingDTO shardingDTO) {
+        return personDao.getPersonRangeByUserNameCreateTime(shardingDTO.getUserNameList().get(0), new Date(1572969600000L), new Date());
     }
 
     @PostMapping("/listPersonByUserNameAndCreateTime")
-    public List<String> listPersonByUserNameAndCreateTime(@RequestBody ShardingDTO shardingDTO) {
-        return personDao.listPersonByUserNameAndCreateTime(shardingDTO.getUserNameList(), new Date(1572969600000L), new Date());
+    public List<String> listPersonRangeByUserNameCreateTime(@RequestBody ShardingDTO shardingDTO) {
+        return personDao.listPersonRangeByUserNameCreateTime(shardingDTO.getUserNameList(), new Date(1572969600000L), new Date());
     }
 
     @PostMapping("/addPerson")
@@ -52,6 +52,12 @@ public class TableController {
     @PostMapping("/addPersonList")
     public String addPersonList(@RequestBody List<PersonModel> personList) {
         personDao.addPersonList(personList);
+        return "success";
+    }
+
+    @PostMapping("/addPersonRange")
+    public String addPersonRange(@RequestBody PersonModel personModel) {
+        personDao.addPersonRange(personModel);
         return "success";
     }
 }

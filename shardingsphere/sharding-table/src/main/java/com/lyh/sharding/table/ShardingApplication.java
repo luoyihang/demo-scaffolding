@@ -11,9 +11,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication(scanBasePackages = "com.lyh", exclude = {DruidDataSourceAutoConfigure.class})
 @MapperScan(basePackages = "com.lyh.**.dao")
-public class TableApplication {
+public class ShardingApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(TableApplication.class, args);
+        SpringApplication.run(ShardingApplication.class, args);
     }
 }
