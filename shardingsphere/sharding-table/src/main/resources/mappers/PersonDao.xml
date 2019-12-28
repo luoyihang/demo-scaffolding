@@ -43,4 +43,13 @@
         values(now(), #{userName}, #{age}, #{personName})
     </insert>
 
+    <insert id="addPersonRangeList">
+        <foreach collection="list" item="item" separator=";">
+            insert into t_person_range(createTime, userName, age, personName)
+            values(now(), #{item.userName}, #{item.age}, #{item.personName})
+            ON duplicate key update
+            age = age + 1
+        </foreach>
+    </insert>
+
 </mapper>

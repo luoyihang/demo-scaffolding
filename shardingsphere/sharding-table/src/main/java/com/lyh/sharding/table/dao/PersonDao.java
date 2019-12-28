@@ -68,4 +68,11 @@ public interface PersonDao {
      * @param personModel
      */
     void addPersonRange(PersonModel personModel);
+
+    /**
+     * 批量增加
+     *
+     * @param personModelList
+     */
+    void addPersonRangeList(@Param("list") List<PersonModel> personModelList);
 }

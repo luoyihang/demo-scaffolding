@@ -60,4 +60,11 @@ public class PersonController {
         personDao.addPersonRange(personModel);
         return "success";
     }
+
+    @PostMapping("/addPersonRangeList")
+    public String addPersonRangeList(@RequestBody List<PersonModel> personModelList) {
+        // 4.0.0-RC3不支持
+        personDao.addPersonRangeList(personModelList);
+        return "success";
+    }
 }
