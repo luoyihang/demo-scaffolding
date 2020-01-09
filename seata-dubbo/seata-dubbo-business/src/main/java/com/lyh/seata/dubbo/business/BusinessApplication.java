@@ -12,9 +12,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 @SpringBootApplication(scanBasePackages = "com.lyh")
 @MapperScan(basePackages = "com.lyh.**.dao")
 @EnableDubbo
-public class SeataDubboBusinessApplication {
+public class BusinessApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(SeataDubboBusinessApplication.class, args);
+        SpringApplication.run(BusinessApplication.class, args);
     }
 }

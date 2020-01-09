@@ -8,7 +8,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author luo yihang
  * @date 2019/11/21 10:11
  */
-@SpringBootApplication
+@SpringBootApplication(scanBasePackages = "com.lyh")
 @MapperScan(basePackages = "com.lyh.**.dao")
 public class SimpleDemoApplication {
 

@@ -3,6 +3,7 @@ package com.lyh.seata.dubbo.business.service;
 import com.lyh.seata.dubbo.api.StorageOpenApi;
 import com.lyh.seata.dubbo.api.exception.DubboException;
 import com.lyh.seata.dubbo.business.dao.BusinessDao;
+import io.seata.spring.annotation.GlobalTransactional;
 import org.apache.dubbo.config.annotation.Reference;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,7 @@ public class BusinessServiceImpl implements BusinessService {
     private BusinessDao businessDao;
 
     @Override
+    @GlobalTransactional(timeoutMills = 30000, name = "doPurchase")
     public void doPurchase(Integer storageNum) throws DubboException {
         businessDao.addPurchaseOrder("001", storageNum);
         storageOpenApi.decreaseStorage("001", storageNum);

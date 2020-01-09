@@ -3,6 +3,6 @@
 <mapper namespace="com.lyh.seata.dubbo.business.dao.BusinessDao">
 
     <insert id="addPurchaseOrder">
-        insert into table(skuCode, purchaseNum) values(#{skuCode}, #{purchaseNum})
+        insert into t_order(skuCode, purchaseNum) values(#{skuCode}, #{purchaseNum})
     </insert>
 </mapper>
