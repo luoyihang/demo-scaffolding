@@ -16,4 +16,11 @@ public interface PersonDao {
      * @return
      */
     PersonModel getPersonInfo(@Param("id") Long id);
+
+    /**
+     * 新增 person
+     *
+     * @param personModel
+     */
+    void addPersonInfo(@Param("param") PersonModel personModel);
 }

@@ -3,6 +3,7 @@ package com.lyh.common.entity;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.Data;
 
+import java.io.Serializable;
 import java.util.Date;
 
 /**
@@ -10,7 +11,9 @@ import java.util.Date;
  * @date 2019/11/6 17:25
  */
 @Data
-public class PersonModel {
+public class PersonModel implements Serializable {
+
+    private static final long serialVersionUID = -8090602806322758551L;
 
     private Long id;
 

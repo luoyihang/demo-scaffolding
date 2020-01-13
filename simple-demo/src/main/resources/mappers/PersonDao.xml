@@ -6,4 +6,9 @@
         select * from t_person where id = #{id}
     </select>
 
+    <insert id="addPersonInfo">
+        insert into t_person(createTime, userName, age, personName)
+        values(#{param.createTime}, #{param.userName}, #{param.age}, #{param.personName})
+    </insert>
+
 </mapper>
