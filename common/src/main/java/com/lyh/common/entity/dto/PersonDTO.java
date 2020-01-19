@@ -1,5 +1,6 @@
 package com.lyh.common.entity.dto;
 
+import lombok.Builder;
 import lombok.Data;
 
 /**
@@ -7,6 +8,7 @@ import lombok.Data;
  * @date 2019/11/21 10:42
  */
 @Data
+@Builder
 public class PersonDTO {
 
     private Long id;
