@@ -29,6 +29,15 @@ public interface PersonDao {
     String getPersonByUserName2(@Param("userName") String userName);
 
     /**
+     * 批量查询
+     *
+     * @param userNameList
+     * @return
+     */
+    List<String> listPersonByUserName(@Param("userNameList") List<String> userNameList);
+
+
+    /**
      * userName 和 createTime 分表
      *
      * @param userName
@@ -75,4 +84,5 @@ public interface PersonDao {
      * @param personModelList
      */
     void addPersonRangeList(@Param("list") List<PersonModel> personModelList);
+
 }

@@ -10,6 +10,14 @@
         select personName from t_person where userName = "123"
     </select>
 
+    <select id="listPersonByUserName" resultType="java.lang.String">
+        select personName from t_person
+        where userName in
+        <foreach collection="userNameList"  item="item" open="(" close=")" separator=",">
+            #{item}
+        </foreach>
+    </select>
+
     <select id="getPersonRangeByUserNameCreateTime" resultType="java.lang.String">
         select personName from t_person_range
         where userName = #{userName}
