@@ -6,10 +6,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.shardingsphere.api.sharding.complex.ComplexKeysShardingValue;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.LinkedList;
-import java.util.List;
+import java.util.*;
 
 /**
  * @author luo yihang
@@ -30,23 +27,24 @@ public class ShardingAlgorithmUtil {
         return result;
     }
 
-    public static void main(String[] args) {
-        String a = "1";
-        String b = "3";
-        System.out.println(a.hashCode() % 2);
-        System.out.println(b.hashCode() % 2);
-
-        System.out.println(a.hashCode() % 4);
-        System.out.println(b.hashCode() % 4);
-    }
 
     public static List<String> doRangeSharding(ComplexKeysShardingValue<String> complexKeysShardingValue, String shardingRangeKey, List<String> tableNamePreList) {
+        List<String> result = new LinkedList<>();
+
+        Collection<?> listDateValue = complexKeysShardingValue.getColumnNameAndShardingValuesMap().get(shardingRangeKey);
+        if (CollectionUtils.isNotEmpty(listDateValue)) {
+            tableNamePreList.forEach(p -> {
+                for (Object date : listDateValue) {
+                    result.add(p + "_" + DateUtil.formatDate((Date) date, DateUtil.YYYY_MM));
+                }
+            });
+            return result;
+        }
         Range keyRange = complexKeysShardingValue.getColumnNameAndRangeValuesMap().get(shardingRangeKey);
         if (null == keyRange || keyRange.isEmpty()) {
             log.error(ERROR_MSG);
             throw new IllegalArgumentException(ERROR_MSG);
         }
-        List<String> result = new LinkedList<>();
         Date startTime = (Date) keyRange.lowerEndpoint();
         Date endTime = (Date) keyRange.upperEndpoint();
 
