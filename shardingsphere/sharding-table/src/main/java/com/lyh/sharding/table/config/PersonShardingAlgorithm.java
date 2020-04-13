@@ -11,7 +11,7 @@ import java.util.Collection;
  */
 public class PersonShardingAlgorithm implements ComplexKeysShardingAlgorithm<String> {
 
-    private static final String SHARDING_KEY = "userName";
+    private static final String SHARDING_KEY = "username";
 
     @Override
     public Collection<String> doSharding(Collection<String> collection, ComplexKeysShardingValue<String> complexKeysShardingValue) {
