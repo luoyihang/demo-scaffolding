@@ -25,6 +25,7 @@
         <module>seata-dubbo</module>
         <module>shardingsphere</module>
         <module>easy-excel</module>
+        <module>common-use</module>
     </modules>
 
     <properties>
