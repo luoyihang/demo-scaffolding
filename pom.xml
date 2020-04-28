@@ -18,6 +18,8 @@
 
     <modules>
         <module>common</module>
+        <module>common-use</module>
+
     </modules>
 
     <properties>
