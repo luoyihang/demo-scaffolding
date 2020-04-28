@@ -21,7 +21,6 @@
         <module>simple-demo</module>
         <module>dubbo</module>
         <module>elasticsearch</module>
-        <module>skywalking</module>
         <module>seata-dubbo</module>
         <module>shardingsphere</module>
         <module>easy-excel</module>
