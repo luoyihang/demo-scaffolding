@@ -1,29 +1,16 @@
 package com.lyh.easy.excel;
 
-import com.alibaba.excel.EasyExcel;
-import com.alibaba.excel.ExcelWriter;
-import com.alibaba.excel.write.handler.SheetWriteHandler;
-import com.alibaba.excel.write.handler.WriteHandler;
-import com.alibaba.excel.write.metadata.WriteSheet;
-import com.alibaba.excel.write.metadata.holder.AbstractWriteHolder;
-import com.alibaba.excel.write.metadata.holder.WriteSheetHolder;
-import com.alibaba.excel.write.metadata.holder.WriteWorkbookHolder;
 import com.alibaba.excel.write.metadata.style.WriteCellStyle;
 import com.alibaba.excel.write.metadata.style.WriteFont;
 import com.alibaba.excel.write.style.HorizontalCellStyleStrategy;
-import com.google.common.collect.Lists;
+import com.lyh.easy.excel.util.DemoEasyExcel;
+import com.lyh.easy.excel.util.data.AbstractNormalExcelData;
 import org.apache.poi.ss.usermodel.FillPatternType;
 import org.apache.poi.ss.usermodel.IndexedColors;
 
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.InputStream;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipOutputStream;
 
 /**
  * @author luo yihang
@@ -32,19 +19,26 @@ import java.util.zip.ZipOutputStream;
 public class Test {
 
     public static void main(String[] args) {
-        List<MyTestExportModel> list = new ArrayList<>();
-        MyTestExportModel model = new MyTestExportModel();
-        model.setName("    哈哈哈");
-        model.setAmount(BigDecimal.ZERO);
-        BigDecimal bigDecimal = BigDecimal.valueOf(0.00000001);
-        model.setAmountNoTax(bigDecimal.add(BigDecimal.ZERO).setScale(10, BigDecimal.ROUND_DOWN));
-        list.add(model);
 
-        MyTestExportModel model2 = new MyTestExportModel();
-        model2.setName("    哈哈哈");
-        model2.setAmount(BigDecimal.ZERO);
-        model2.setAmountNoTax(BigDecimal.valueOf(1));
-        list.add(model2);
+        DemoEasyExcel.write(ExcelFileEnum.TYPE_1, PersonModel.class, new AbstractNormalExcelData<PersonModel>() {
+            @Override
+            public List<PersonModel> getExcelData() {
+                List<PersonModel> list = new ArrayList<>();
+                PersonModel model = new PersonModel();
+                model.setName("    哈哈哈");
+                model.setAmount(BigDecimal.ZERO);
+                BigDecimal bigDecimal = BigDecimal.valueOf(0.00000001);
+                model.setAmountNoTax(bigDecimal.add(BigDecimal.ZERO).setScale(10, BigDecimal.ROUND_DOWN));
+                list.add(model);
+
+                PersonModel model2 = new PersonModel();
+                model2.setName("    哈哈哈");
+                model2.setAmount(BigDecimal.ZERO);
+                model2.setAmountNoTax(BigDecimal.valueOf(1));
+                list.add(model2);
+                return list;
+            }
+        });
 
         // 内容的策略
         WriteCellStyle contentWriteCellStyle = new WriteCellStyle();
@@ -54,31 +48,28 @@ public class Test {
         contentWriteCellStyle.setFillForegroundColor(IndexedColors.GREEN.getIndex());
         WriteFont contentWriteFont = new WriteFont();
         // 字体大小
-        contentWriteFont.setFontHeightInPoints((short)20);
+        contentWriteFont.setFontHeightInPoints((short) 20);
         contentWriteCellStyle.setWriteFont(contentWriteFont);
-//        contentWriteCellStyle.set
 
         HorizontalCellStyleStrategy horizontalCellStyleStrategy =
                 new HorizontalCellStyleStrategy(null, contentWriteCellStyle);
 
-        String fileName = "C:\\Users\\BG345403\\Desktop\\a\\" + "simpleWrite" + System.currentTimeMillis() + ".zip";
-        // 这里 需要指定写用哪个class去写，然后写到第一个sheet，名字为模板 然后文件流会自动关闭
-        // 如果这里想使用03 则 传入excelType参数即可
-        EasyExcel.write(fileName, MyTestExportModel.class).registerWriteHandler(new SheetWriteHandler() {
-            @Override
-            public void beforeSheetCreate(WriteWorkbookHolder writeWorkbookHolder, WriteSheetHolder writeSheetHolder) {
-                writeSheetHolder.globalConfiguration().setAutoTrim(false);
-            }
-            @Override
-            public void afterSheetCreate(WriteWorkbookHolder writeWorkbookHolder, WriteSheetHolder writeSheetHolder) {
-            }
-        }).sheet("模板").doWrite(list);
+//        String fileName = "C:\\Users\\BG345403\\Desktop\\a\\" + "simpleWrite" + System.currentTimeMillis() + ".zip";
+//        // 这里 需要指定写用哪个class去写，然后写到第一个sheet，名字为模板 然后文件流会自动关闭
+//        // 如果这里想使用03 则 传入excelType参数即可
+//        EasyExcel.write(fileName, MyTestExportModel.class).registerWriteHandler(new SheetWriteHandler() {
+//            @Override
+//            public void beforeSheetCreate(WriteWorkbookHolder writeWorkbookHolder, WriteSheetHolder writeSheetHolder) {
+//                writeSheetHolder.globalConfiguration().setAutoTrim(false);
+//            }
+//            @Override
+//            public void afterSheetCreate(WriteWorkbookHolder writeWorkbookHolder, WriteSheetHolder writeSheetHolder) {
+//            }
+//        }).sheet("模板").doWrite(list);
 
-        String fileName1 = "C:\\Users\\BG345403\\Desktop\\a\\" + "simpleWrite" + System.currentTimeMillis() + ".xlsx";
-
-        EasyExcel.write(fileName1, MyTestExportModel.class).sheet("模板").doWrite(list);
-
-
+//        String fileName1 = "C:\\Users\\BG345403\\Desktop\\a\\" + "simpleWrite" + System.currentTimeMillis() + ".xlsx";
+//
+//        EasyExcel.write(fileName1, PersonModel.class).sheet("模板").doWrite(list);
 
 
 //

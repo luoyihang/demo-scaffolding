@@ -15,9 +15,9 @@ import java.math.BigDecimal;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class MyTestExportModel {
+public class PersonModel {
     @DateTimeFormat
-    @ExcelProperty(value = "发生额报表", index = 0)
+    @ExcelProperty(value = "名字", index = 0)
     private String name;
     @ExcelProperty(value = "含税金额", index = 1)
     private BigDecimal amount;
