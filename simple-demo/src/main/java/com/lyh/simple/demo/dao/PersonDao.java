@@ -10,7 +10,7 @@ import org.apache.ibatis.annotations.Param;
 public interface PersonDao {
 
     /**
-     *  获取 person 信息
+     * 获取 person 信息
      *
      * @param id
      * @return
@@ -23,4 +23,11 @@ public interface PersonDao {
      * @param personModel
      */
     void addPersonInfo(@Param("param") PersonModel personModel);
+
+    /**
+     * 增加person age
+     *
+     * @param id
+     */
+    void updatePersonAge(@Param("id") Long id);
 }

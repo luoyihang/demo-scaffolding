@@ -11,4 +11,10 @@
         values(#{param.createTime}, #{param.userName}, #{param.age}, #{param.personName})
     </insert>
 
+    <update id="updatePersonAge">
+        update t_person
+        set age = age + 1
+        where id = #{id}
+    </update>
+
 </mapper>
