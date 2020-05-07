@@ -3,6 +3,7 @@ package com.lyh.sharding.table.controller;
 import com.lyh.common.entity.PersonModel;
 import com.lyh.sharding.table.dao.PersonDao;
 import com.lyh.sharding.table.entity.ShardingDTO;
+import org.springframework.dao.DuplicateKeyException;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,7 +26,7 @@ public class PersonController {
 
     @PostMapping("/getPersonByUserName")
     public String getPersonByUserName(@RequestBody ShardingDTO shardingDTO) {
-        return personDao.getPersonByUserName(shardingDTO.getUserNameList().get(0));
+        return personDao.getPersonByUserName(shardingDTO.getUserName());
     }
 
     @PostMapping("/getPersonByUserName2")
@@ -50,7 +51,11 @@ public class PersonController {
 
     @PostMapping("/addPerson")
     public String addPerson(@RequestBody PersonModel personModel) {
-        personDao.addPerson(personModel);
+        try {
+            personDao.addPerson(personModel);
+        } catch (DuplicateKeyException e) {
+            System.out.println("111");
+        }
         return "success";
     }
 

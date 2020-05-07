@@ -11,8 +11,8 @@ import java.util.*;
  */
 public class PersonRangeShardingAlgorithm implements ComplexKeysShardingAlgorithm<String> {
 
-    private static final String SHARDING_KEY = "username";
-    private static final String SHARDING_RANGE_KEY = "createtime";
+    private static final String SHARDING_KEY = "userName";
+    private static final String SHARDING_RANGE_KEY = "createTime";
 
     @Override
     public Collection<String> doSharding(Collection<String> collection, ComplexKeysShardingValue<String> complexKeysShardingValue) {

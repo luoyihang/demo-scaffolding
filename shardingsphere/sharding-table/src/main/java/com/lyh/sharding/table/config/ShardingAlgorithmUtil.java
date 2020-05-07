@@ -19,8 +19,11 @@ public class ShardingAlgorithmUtil {
     public static List<String> doListSharding(ComplexKeysShardingValue<String> complexKeysShardingValue, String shardingKey) {
         List<String> keyList = (List<String>) complexKeysShardingValue.getColumnNameAndShardingValuesMap().get(shardingKey);
         if (CollectionUtils.isEmpty(keyList)) {
-            log.error(ERROR_MSG);
-            throw new IllegalArgumentException(ERROR_MSG);
+            keyList = (List<String>) complexKeysShardingValue.getColumnNameAndShardingValuesMap().get(shardingKey.toLowerCase());
+            if (CollectionUtils.isEmpty(keyList)) {
+                log.error(ERROR_MSG);
+                throw new IllegalArgumentException(ERROR_MSG);
+            }
         }
         List<String> result = new LinkedList<>();
         keyList.forEach(p -> result.add(complexKeysShardingValue.getLogicTableName() + "_" + p.hashCode() % 4));

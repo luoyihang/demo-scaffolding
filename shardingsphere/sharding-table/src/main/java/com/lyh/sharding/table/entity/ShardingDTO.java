@@ -15,6 +15,8 @@ public class ShardingDTO {
 
     private List<String> userNameList;
 
+    private String userName;
+
     @JsonFormat( pattern="yyyy/MM/dd HH:mm",timezone = "GMT+8")
     private Date startTime;
 
