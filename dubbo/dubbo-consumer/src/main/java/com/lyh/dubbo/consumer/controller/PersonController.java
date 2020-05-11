@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/person")
 public class PersonController {
 
-    @Reference(version = "1.0")
+    @Reference(version = "1.0", timeout = 10000)
     private PersonDubboService personDubboService;
 
     @PostMapping("/getUserName")
