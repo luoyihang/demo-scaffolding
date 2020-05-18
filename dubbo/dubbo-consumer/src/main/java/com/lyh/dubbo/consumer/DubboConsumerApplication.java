@@ -4,12 +4,14 @@ import org.apache.dubbo.config.spring.context.annotation.EnableDubbo;
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ImportResource;
 
 /**
  * @author luo yihang
  * @date 2019/9/19 8:48
  */
 @SpringBootApplication(scanBasePackages = "com.lyh")
+@ImportResource(locations = {"classpath:/application-dubbo.xml"})
 @MapperScan(basePackages = "com.lyh.**.dao")
 @EnableDubbo
 public class DubboConsumerApplication {

@@ -1,16 +1,14 @@
 package com.lyh.dubbo.provider.dispatcher;
 
-import com.lyh.dubbo.interfaces.PersonDubboService;
-import org.apache.dubbo.config.annotation.Service;
+import com.lyh.dubbo.interfaces.PersonDubboApi;
 import org.springframework.stereotype.Component;
 
 /**
  * @author luo yihang
  * @date 2019/9/18 19:35
  */
-@Component
-@Service(version = "1.0", interfaceClass = PersonDubboService.class)
-public class PersonProviderImpl implements PersonDubboService {
+@Component("personProviderImpl")
+public class PersonProviderImpl implements PersonDubboApi {
 
     @Override
     public String getUserName(Long id) {

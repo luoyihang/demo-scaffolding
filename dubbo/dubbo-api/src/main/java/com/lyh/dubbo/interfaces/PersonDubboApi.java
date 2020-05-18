@@ -4,7 +4,7 @@ package com.lyh.dubbo.interfaces;
  * @author luo yihang
  * @date 2019/9/18 19:36
  */
-public interface PersonDubboService {
+public interface PersonDubboApi {
     /**
      * 查询名称
      *
